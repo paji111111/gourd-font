@@ -14,7 +14,7 @@ Vue.use(ElementUI)
 Vue.use(NormailizeCss)
 Vue.component('icon', Icon)
 
-Object.defineProperty(Vue.prototype, '$axios', { value: axios });
+Object.defineProperty(Vue.prototype, '$axios', { value: axios })
 
 /* eslint-disable no-new */
 new Vue({
