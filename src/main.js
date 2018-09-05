@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Vuex from 'vuex'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import NormailizeCss from 'normalize.css'
@@ -11,10 +12,10 @@ import router from './router'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+Vue.use(Vuex)
 Vue.use(NormailizeCss)
 Vue.component('icon', Icon)
-
-Object.defineProperty(Vue.prototype, '$axios', { value: axios })
+Vue.prototype.$http = axios
 
 /* eslint-disable no-new */
 new Vue({

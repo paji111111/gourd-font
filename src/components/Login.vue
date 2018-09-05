@@ -1,20 +1,19 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
-    asdasdasdasd
-    asdasdasdasd
-    asdasdasdasd
-    asdasdasdasdas
-    asdasdasdasdasdasdasdawdasdasfasfas
+    <h1>登录界面</h1>
+    用户名：<Input /><br/>
+    密码：<Input /><br/>
+    <button @click="login">登录</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: '登录',
-  data () {
-    return {
-      msg: 'welcome login----------------------'
+  methods: {
+    login () {
+      console.log(' ====== ')
+      window.sessionStorage.setItem('access-token', 'aaa')
+      this.$router.replace('/')
     }
   }
 }

@@ -1,31 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import menus from '@/config/menu-config'
+import menus from '@/config/menu-config'
 
-import Login from '@/components/Login'
+// import Login from '@/components/Login'
 
 Vue.use(Router)
 
-var routesArray = []
+var routes = []
 
-routesArray.push({
-  path: '/',
-  name: 'login',
-  component: Login
+menus.forEach((item) => {
+  item.sub.forEach((sub) => {
+    routes.push({
+      path: `/${sub.componentName}`,
+      name: sub.componentName,
+      component: () => import(`@/components/${sub.componentName}`)
+    })
+  })
 })
-//
-// menus.forEach((item) => {
-//   item.sub.forEach((sub) => {
-//     routes.push({
-//       path: `/${sub.componentName}`,
-//       name: sub.componentName,
-//       component: () => import(`@/components/${sub.componentName}`)
-//     })
-//   })
-// })
-let routes = new Router({ routesArray })
+
+routes.push({
+  path: '/login',
+  name: 'Login',
+  component: () =>  import(`@/components/Login`)
+})
+let Routersaa = new Router({ routes })
 // 访问之前，都检查下是否登录了
-routes.beforeEach((to, from, next) => {
+Routersaa.beforeEach((to, from, next) => {
   // console.log('to:' + to.path)
   if (to.path.startsWith('/login')) {
     window.sessionStorage.removeItem('access-token')
@@ -40,4 +40,4 @@ routes.beforeEach((to, from, next) => {
   }
 })
 
-export default routes
+export default Routersaa
