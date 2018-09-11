@@ -16,7 +16,7 @@ Vue.use(Vuex)
 Vue.use(NormailizeCss)
 Vue.component('icon', Icon)
 Vue.prototype.$http = axios
-
+Vue.prototype.uploadAddr = 'http://localhost:9090'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

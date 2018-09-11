@@ -21,7 +21,7 @@ menus.forEach((item) => {
 routes.push({
   path: '/login',
   name: 'Login',
-  component: () =>  import(`@/components/Login`)
+  component: () => import(`@/components/Login`)
 })
 let Routersaa = new Router({ routes })
 // 访问之前，都检查下是否登录了
@@ -32,6 +32,9 @@ Routersaa.beforeEach((to, from, next) => {
     next()
   } else {
     let token = window.sessionStorage.getItem('access-token')
+
+    console.log(token)
+
     if (!token) {
       next({path: '/login'})
     } else {

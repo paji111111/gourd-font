@@ -17,5 +17,9 @@ module.exports = [{
   }, {
     name: 'Checkbox 多选框',
     componentName: 'FormCheckbox'
-  }]
+  }, {
+    name: '流程定义',
+    componentName: 'TaskflowAdd'
+  }
+  ]
 }]
