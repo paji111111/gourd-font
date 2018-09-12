@@ -46,7 +46,17 @@ export default {
 
   methods: {
     login () {
+      var userId = this.$refs.name.value
+      console.log('userId ====================== ' + userId)
       console.log(' ------------------------------------ ')
+
+      var params = new URLSearchParams()
+      params.append('param1', 'value1')
+      params.append('param2', 'value2')
+
+      this.$http.post(this.uploadAddr + '/user/get', params).then(function (response) {
+        console.log('response ======= ' + response)
+      })
     },
     handleReset () {
       this.$refs.ruleForm.resetFields()
