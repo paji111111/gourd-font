@@ -35,10 +35,10 @@ export default {
           {required: true, message: '请输入用户名', trigger: 'blur'}
         ],
         status: [
-          {required: true, message: '请输入用户名', trigger: 'blur'}
+          {required: true, message: '请输入状态', trigger: 'blur'}
         ],
         description: [
-          {required: true, message: '请输入登录密码', trigger: 'blur'}
+          {required: true, message: '请输入描述', trigger: 'blur'}
         ]
       }
     }
@@ -56,6 +56,14 @@ export default {
 
       this.$http.post(this.uploadAddr + '/user/get', params).then(function (response) {
         console.log('response ======= ' + response)
+
+        console.log(response.status)
+        console.log(response.data)
+
+        var json = JSON.stringify(response)
+        // var json = JSON.parse(response)
+        console.log(json.toString())
+
       })
     },
     handleReset () {
