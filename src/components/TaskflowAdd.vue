@@ -63,7 +63,6 @@ export default {
         var json = JSON.stringify(response)
         // var json = JSON.parse(response)
         console.log(json.toString())
-
       })
     },
     handleReset () {
